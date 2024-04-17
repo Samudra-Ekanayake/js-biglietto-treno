@@ -1,7 +1,20 @@
-let kmpercorso = prompt ("inserisci quanti km vuoi percorrere")
+const kmPercorso = prompt ("inserisci quanti km vuoi percorrere")
+const etaPasseggero = prompt("inserisci la tua età")
 
-let prezzokm = 2;
+const prezzoAlKm = 2;
 
-let prezzobiglietto = kmpercorso * prezzokm;
+const prezzoBiglietto = kmPercorso * prezzoAlKm;
 
-console.log("il prezzo del biglietto è " + prezzobiglietto)
+let sconto = 0;
+
+if(etaPasseggero < 18){
+    sconto = (prezzoBiglietto * 20) / 100
+} else if (etaPasseggero > 65) {
+    sconto = (prezzoBiglietto * 40) / 100
+}
+
+const prezzoFinale = (prezzoBiglietto - sconto).toFixed(2)
+
+console.log("il prezzo del biglietto è " + prezzoFinale)
+
+document.getElementById("prezzoFinaleInput").value = prezzoFinale
